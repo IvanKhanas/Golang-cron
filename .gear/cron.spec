@@ -38,7 +38,9 @@ In addition, v3 adds support for Go Modules, cleans up rough edges like the time
 
 %prep
 
-%setup
+
+%setup -q
+
 
 %build
 
@@ -47,28 +49,31 @@ export BUILDDIR="$PWD/.build"
 export GOPATH="%go_path"
 
 
-
-
 %golang_build
 
 
 %install
 
 export BUILDDIR="$PWD/.build"
-
 export GOPATH="%go_path"
+
 
 %golang_install
 
 
+
 %check
+
 export GOPATH="%go_path"
 %gotest
 
 
 %files
+
 %doc LICENSE  README.md
 %go_path
+
+
 %changelog
 
 * Mon Feb 17 2025 Ivan Hanas <xeno@altlinux.org> 3.0.0-alt1
